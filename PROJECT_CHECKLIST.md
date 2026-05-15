@@ -22,6 +22,7 @@
 - [x] Add the connection string to a local `.env` file as `MONGODB_URI`.
 - [x] Run the app locally with MongoDB connected and save at least one favorite recipe.
 - [x] Fill in `README.md` fields: submitted by, group members, contact email.
+- [x] Push project code to GitHub.
 - [ ] Deploy the app online, for example with Render.
 - [ ] Add the deployed app link to `README.md`.
 - [ ] Record and upload a YouTube demo video.
