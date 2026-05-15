@@ -14,7 +14,7 @@ Recipe Finder & Favorites lets users search for meals using TheMealDB API, view 
 
 ## YouTube Video Demo Link
 
-TODO: Add the YouTube demo link before submitting.
+https://youtu.be/kEqcbglxKTM
 
 ## APIs Information
 
