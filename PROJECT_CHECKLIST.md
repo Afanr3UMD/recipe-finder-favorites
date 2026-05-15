@@ -27,6 +27,6 @@
 - [x] Add the deployed app link to `README.md`.
 - [x] Record and upload a YouTube demo video.
 - [x] Add the YouTube demo link to `README.md`.
-- [ ] Create the final zip file without `node_modules`.
+- [x] Create the final zip file without `node_modules`.
 - [ ] Upload the zip to the submit server.
 - [ ] Download the submitted zip from the submit server and verify no files are missing.
