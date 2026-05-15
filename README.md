@@ -26,7 +26,7 @@ afanr3@terpmail.umd.edu
 
 ## Deployed App Link
 
-TODO: Add the Render deployment link before submitting.
+https://recipe-finder-favorites.onrender.com
 
 ## AI Use
 
