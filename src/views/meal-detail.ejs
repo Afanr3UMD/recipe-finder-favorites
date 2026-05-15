@@ -1,0 +1,44 @@
+<%- include("partials/header") %>
+
+<article class="detail-layout">
+  <div class="detail-image-wrap">
+    <img src="<%= meal.strMealThumb %>" alt="<%= meal.strMeal %>">
+  </div>
+
+  <div class="detail-content">
+    <p class="eyebrow"><%= meal.strCategory %> / <%= meal.strArea %></p>
+    <h1><%= meal.strMeal %></h1>
+
+    <section class="detail-section">
+      <h2>Ingredients</h2>
+      <ul class="ingredient-list">
+        <% ingredients.forEach((ingredient) => { %>
+          <li><%= ingredient %></li>
+        <% }) %>
+      </ul>
+    </section>
+
+    <section class="detail-section">
+      <h2>Instructions</h2>
+      <p><%= meal.strInstructions %></p>
+    </section>
+
+    <section class="save-panel" aria-labelledby="save-title">
+      <h2 id="save-title"><%= savedFavorite ? "Update Favorite" : "Save Favorite" %></h2>
+      <form action="/favorites" method="post" class="stacked-form">
+        <input type="hidden" name="mealId" value="<%= meal.idMeal %>">
+        <input type="hidden" name="name" value="<%= meal.strMeal %>">
+        <input type="hidden" name="category" value="<%= meal.strCategory %>">
+        <input type="hidden" name="area" value="<%= meal.strArea %>">
+        <input type="hidden" name="thumbnail" value="<%= meal.strMealThumb %>">
+        <input type="hidden" name="sourceUrl" value="<%= meal.strSource || meal.strYoutube || '' %>">
+
+        <label for="notes">Personal notes</label>
+        <textarea id="notes" name="notes" rows="4" maxlength="500" placeholder="Why do you want to make this?"><%= savedFavorite ? savedFavorite.notes : "" %></textarea>
+        <button type="submit"><%= savedFavorite ? "Update Saved Recipe" : "Save to Favorites" %></button>
+      </form>
+    </section>
+  </div>
+</article>
+
+<%- include("partials/footer") %>

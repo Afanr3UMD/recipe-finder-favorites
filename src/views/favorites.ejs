@@ -1,0 +1,38 @@
+<%- include("partials/header") %>
+
+<section class="section-heading">
+  <p class="eyebrow">MongoDB collection</p>
+  <h1>Saved Favorites</h1>
+  <p>These recipes were saved by the app using Mongoose and MongoDB.</p>
+</section>
+
+<% if (favorites.length === 0) { %>
+  <section class="empty-state">
+    <h2>No favorites saved</h2>
+    <p>Search for a meal, open a recipe, and save it with a note.</p>
+    <a class="button-link" href="/">Search Recipes</a>
+  </section>
+<% } else { %>
+  <section class="favorite-list" aria-label="Saved recipes">
+    <% favorites.forEach((favorite) => { %>
+      <article class="favorite-item">
+        <img src="<%= favorite.thumbnail %>" alt="<%= favorite.name %>">
+        <div>
+          <p class="meta"><%= favorite.category %> / <%= favorite.area %></p>
+          <h2><%= favorite.name %></h2>
+          <% if (favorite.notes) { %>
+            <p><%= favorite.notes %></p>
+          <% } %>
+          <div class="item-actions">
+            <a class="button-link" href="/meals/<%= favorite.mealId %>">Open Recipe</a>
+            <form action="/favorites/<%= favorite._id %>/delete" method="post">
+              <button class="secondary-button" type="submit">Remove</button>
+            </form>
+          </div>
+        </div>
+      </article>
+    <% }) %>
+  </section>
+<% } %>
+
+<%- include("partials/footer") %>

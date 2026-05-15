@@ -1,0 +1,49 @@
+<%- include("partials/header") %>
+
+<section class="hero">
+  <div>
+    <p class="eyebrow">Find recipes from a real public API</p>
+    <h1>Search meals, inspect ingredients, and save your favorites.</h1>
+    <p class="hero-copy">
+      Enter a meal keyword and the app will download matching recipes from TheMealDB.
+    </p>
+  </div>
+</section>
+
+<section class="search-panel" aria-labelledby="search-title">
+  <h2 id="search-title">Recipe Search</h2>
+  <form class="search-form" action="/" method="get">
+    <label for="q">Meal keyword</label>
+    <div class="form-row">
+      <input id="q" name="q" type="text" value="<%= query %>" placeholder="Try chicken, pasta, curry, or salmon" required>
+      <button type="submit">Search</button>
+    </div>
+  </form>
+</section>
+
+<% if (searched && meals.length === 0) { %>
+  <section class="empty-state">
+    <h2>No recipes found</h2>
+    <p>Try a broader ingredient or dish name.</p>
+  </section>
+<% } %>
+
+<% if (meals.length > 0) { %>
+  <section class="results" aria-labelledby="results-title">
+    <h2 id="results-title">Results for "<%= query %>"</h2>
+    <div class="recipe-grid">
+      <% meals.forEach((meal) => { %>
+        <article class="recipe-card">
+          <img src="<%= meal.strMealThumb %>" alt="<%= meal.strMeal %>">
+          <div class="card-body">
+            <p class="meta"><%= meal.strCategory %> / <%= meal.strArea %></p>
+            <h3><%= meal.strMeal %></h3>
+            <a class="button-link" href="/meals/<%= meal.idMeal %>">View Recipe</a>
+          </div>
+        </article>
+      <% }) %>
+    </div>
+  </section>
+<% } %>
+
+<%- include("partials/footer") %>

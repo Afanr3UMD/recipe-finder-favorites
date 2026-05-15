@@ -1,0 +1,19 @@
+{
+  "name": "recipe-finder-favorites",
+  "version": "1.0.0",
+  "description": "CMSC335 final project: a Node/Express/MongoDB recipe finder that uses TheMealDB API.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5"
+  }
+}

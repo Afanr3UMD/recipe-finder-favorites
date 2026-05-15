@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %> | Recipe Finder</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav-shell" aria-label="Main navigation">
+        <a class="brand" href="/">Recipe Finder</a>
+        <div class="nav-links">
+          <a class="<%= currentPath === '/' ? 'active' : '' %>" href="/">Search</a>
+          <a class="<%= currentPath.startsWith('/favorites') ? 'active' : '' %>" href="/favorites">Favorites</a>
+        </div>
+      </nav>
+    </header>
+    <main class="page">
+      <% if (!dbReady) { %>
+        <section class="notice">
+          MongoDB is not connected yet. Search still works, but saving favorites requires a MONGODB_URI environment variable.
+        </section>
+      <% } %>
